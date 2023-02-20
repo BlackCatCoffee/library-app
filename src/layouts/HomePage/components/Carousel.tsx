@@ -1,11 +1,12 @@
 import {ReturnBook} from './ReturnBook';
 import {useEffect,useState} from "react";
-import BookeModel from "../../../models/BookeModel";
+import BookModel from "../../../models/BookModel";
 import {SpinnerLoading} from "../../Utils/SpinnerLoading";
+import {Link} from "react-router-dom";
 
 
 export const Carousel = () => {
-    const [books, setBooks] = useState<BookeModel[]>([]);
+    const [books, setBooks] = useState<BookModel[]>([]);
     const [isLoading,setIsLoading] = useState(true);
     const [httpError, setHttpError] = useState(null);
 
@@ -22,7 +23,7 @@ export const Carousel = () => {
             }
             const responseJson = await response.json();
             const responseData = responseJson._embedded.books;
-            const loadedBooks:BookeModel[] = [];
+            const loadedBooks:BookModel[] = [];
             for(const key in responseData){
                 loadedBooks.push({
                     id: responseData[key].id,
@@ -110,7 +111,7 @@ export const Carousel = () => {
                     </div>
                 </div>
                 <div className='homepage-carousel-title mt-3'>
-                    <a className='btn btn-outline-secondary btn-lg' href="src/layouts/HomePage/components/Carousel#">View More</a>
+                    <Link className='btn btn-outline-secondary btn-lg' to='/search'>View More</Link>
 
                 </div>
             </div>

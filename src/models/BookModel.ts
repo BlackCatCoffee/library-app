@@ -1,4 +1,4 @@
-class BookeModel {
+class BookModel {
     id:number;
     title:string;
     author?:string;
@@ -21,4 +21,4 @@ class BookeModel {
     }
 }
 
-export default BookeModel
+export default BookModel
